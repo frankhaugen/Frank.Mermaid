@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Flowchart(Direction direction = Direction.TopToBottom) : IMermaidable
 {
@@ -21,25 +19,25 @@ public class Flowchart(Direction direction = Direction.TopToBottom) : IMermaidab
     public Guid Id { get; } = Guid.NewGuid();
 
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
-        writer.WriteLine("flowchart {0}", direction.ToMermaidSyntax());
+        var writer = new IndentedStringBuilder();
+        writer.WriteLine("flowchart {0}", direction.GetBuilder());
         writer.IncreaseIndent();
         
         foreach (var node in _nodes)
         {
-            writer.Write(node.ToMermaidSyntax());
+            writer.WriteLine(node.GetBuilder());
         }
         
         foreach (var link in _links)
         {
-            writer.Write(link.ToMermaidSyntax());
+            writer.WriteLine(link.GetBuilder());
         }
         
         foreach (var subgraph in _subgraphs)
         {
-            writer.Write(subgraph.ToMermaidSyntax());
+            writer.WriteLine(subgraph.GetBuilder());
         }
         
         writer.DecreaseIndent();

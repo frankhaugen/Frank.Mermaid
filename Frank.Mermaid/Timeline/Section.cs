@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Section(string title) : IMermaidable
 {
@@ -13,15 +11,15 @@ public class Section(string title) : IMermaidable
     /// <inheritdoc />
     public Guid Id { get; } = Guid.NewGuid();
     
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.WriteLine("section {0}", title);
         
         writer.IncreaseIndent();
         foreach (var @event in _events)
         {
-            writer.WriteLine(@event.ToMermaidSyntax());
+            writer.WriteLine(@event.GetBuilder());
         }
         
         return writer;

@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Series(string name) : IMermaidable
 {
@@ -11,14 +9,14 @@ public class Series(string name) : IMermaidable
     public Guid Id { get; } = Guid.NewGuid();
 
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.WriteLine("series {0}", Name);
         writer.IncreaseIndent();
         foreach (var point in Points)
         {
-            writer.WriteLine(point.ToMermaidSyntax());
+            writer.WriteLine(point.GetBuilder());
         }
         
         writer.DecreaseIndent();

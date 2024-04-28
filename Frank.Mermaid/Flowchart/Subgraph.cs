@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 // Define the line styles using an enumeration
 
 public class Subgraph(string label, Direction direction) : IMermaidable
@@ -30,27 +28,27 @@ public class Subgraph(string label, Direction direction) : IMermaidable
     private readonly List<Subgraph> _subgraphs = new();
     
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.WriteLine("subgraph {0}", Label);
         writer.IncreaseIndent();
         
-        writer.WriteLine("direction {0}", Direction.ToMermaidSyntax());
+        writer.WriteLine("direction {0}", Direction.GetBuilder());
         
         foreach (var node in Nodes)
         {
-            writer.Write(node.ToMermaidSyntax());
+            writer.WriteLine(node.GetBuilder());
         }
 
         foreach (var link in Links)
         {
-            writer.Write(link.ToMermaidSyntax());
+            writer.WriteLine(link.GetBuilder());
         }
 
         foreach (var subgraph in _subgraphs)
         {
-            writer.Write(subgraph.ToMermaidSyntax());
+            writer.WriteLine(subgraph.GetBuilder());
         }
         
 

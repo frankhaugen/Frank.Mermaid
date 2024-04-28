@@ -19,7 +19,7 @@ public class GitGraphTests
         // graph.AddCommit(commit2);
         
         
-        var writer = graph.ToMermaidSyntax();
+        var writer = graph.GetBuilder();
         var result = writer.ToString();
         
         _outputHelper.WriteLine(result);

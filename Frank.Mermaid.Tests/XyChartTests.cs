@@ -22,7 +22,7 @@ public class XyChartTests(ITestOutputHelper outputHelper)
         chart.SetXAxis(xAxis);
         chart.SetYAxis(yAxis);
         
-        var writer = chart.ToMermaidSyntax();
+        var writer = chart.GetBuilder();
         var result = writer.ToString();
         
         outputHelper.WriteLine(result);

@@ -10,7 +10,7 @@ public class PieChartTests(ITestOutputHelper outputHelper)
         chart.AddValue("Slice 2", 20);
         chart.AddValue("Slice 3", 30);
         
-        var writer = chart.ToMermaidSyntax();
+        var writer = chart.GetBuilder();
         var result = writer.ToString();
         
         outputHelper.WriteLine(result);
@@ -24,7 +24,7 @@ public class PieChartTests(ITestOutputHelper outputHelper)
         chart.AddValue("Slice 2", 20);
         chart.AddValue("Slice 3", 30);
         
-        var writer = chart.ToMermaidSyntax();
+        var writer = chart.GetBuilder();
         var result = writer.ToString();
         
         outputHelper.WriteLine(result);

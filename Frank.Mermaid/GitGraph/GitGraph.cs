@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class GitGraph : IMermaidable
 {
@@ -12,14 +10,14 @@ public class GitGraph : IMermaidable
     public void AddCommit(Commit commit) => Commits.Add(commit);
 
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.WriteLine("gitGraph");
         writer.IncreaseIndent();
         foreach (var commit in Commits)
         {
-            writer.WriteLine(commit.ToMermaidSyntax());
+            writer.WriteLine(commit.GetBuilder());
         }
         writer.DecreaseIndent();
         return writer;

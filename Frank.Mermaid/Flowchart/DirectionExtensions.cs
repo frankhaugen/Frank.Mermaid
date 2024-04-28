@@ -2,7 +2,7 @@
 
 public static class DirectionExtensions
 {
-    public static string ToMermaidSyntax(this Direction direction)
+    public static string GetBuilder(this Direction direction)
     {
         return direction switch
         {

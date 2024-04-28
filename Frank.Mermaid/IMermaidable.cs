@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public interface IMermaidable
 {
@@ -13,5 +11,5 @@ public interface IMermaidable
     /// Returns a string representation of the object in Mermaid syntax.
     /// </summary>
     /// <returns>a string representation of the object in Mermaid syntax</returns>
-    ICodegenTextWriter ToMermaidSyntax();
+    IIndentedStringBuilder GetBuilder();
 }

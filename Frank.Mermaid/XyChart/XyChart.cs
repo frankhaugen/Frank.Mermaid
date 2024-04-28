@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 /// <summary>
 /// Represents an XY chart.
@@ -25,17 +23,17 @@ public class XyChart(string title) : IMermaidable
     public void SetYAxis(Axis axis) => YAxis = axis;
     
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.Write("xyChart-beta");
         writer.IncreaseIndent();
         writer.Write("title \"{0}\"", Title);
-        writer.WriteLine("x-axis {0} {1}", XAxis.ToMermaidSyntax());
-        writer.WriteLine("y-axis {0}", YAxis.ToMermaidSyntax());
+        writer.WriteLine("x-axis {0} {1}", XAxis, "CCC");
+        writer.WriteLine("y-axis {0}", YAxis);
         foreach (var series in Series)
         {
-            writer.WriteLine(series.ToMermaidSyntax());
+            writer.WriteLine(series.GetBuilder());
         }
         
         writer.DecreaseIndent();

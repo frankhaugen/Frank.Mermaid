@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Timeline(string title) : IMermaidable
 {
@@ -16,9 +14,9 @@ public class Timeline(string title) : IMermaidable
     /// <inheritdoc />
     public Guid Id { get; } = Guid.NewGuid();
     
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.WriteLine("timeline");
         writer.IncreaseIndent();
         writer.WriteLine("title {0}", title);
@@ -27,7 +25,7 @@ public class Timeline(string title) : IMermaidable
         {
             foreach (var section in _sections)
             {
-                writer.Write(section.ToMermaidSyntax());
+                writer.WriteLine(section.GetBuilder());
             }
             
             writer.DecreaseIndent();
@@ -36,7 +34,7 @@ public class Timeline(string title) : IMermaidable
         {
             foreach (var @event in _events)
             {
-                writer.Write(@event.ToMermaidSyntax());
+                writer.WriteLine(@event.GetBuilder());
             }
         }
         

@@ -21,7 +21,7 @@ public class TimelineTests(ITestOutputHelper outputHelper)
         section3.AddEvent(new Event("Event 6", new DateTime(2022, 1, 6)));
         timeline.AddSection(section3);
         
-        var writer = timeline.ToMermaidSyntax();
+        var writer = timeline.GetBuilder();
         var result = writer.ToString();
 
         outputHelper.WriteLine(result);

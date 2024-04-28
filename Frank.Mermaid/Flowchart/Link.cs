@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Link : IMermaidable
 {
@@ -45,11 +43,11 @@ public class Link : IMermaidable
     public Guid Id { get; } = Guid.NewGuid();
     
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         
-        writer.Write("{0} {1}{2} {3}", Source, Line.ToMermaidSyntax(), GetLabel(), Target);
+        writer.Write("{0} {1}{2} {3}", Source, Line.GetBuilder(), GetLabel(), Target);
         
         writer.WriteLine();
         return writer;

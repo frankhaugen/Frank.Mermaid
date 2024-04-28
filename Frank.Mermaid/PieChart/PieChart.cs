@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class PieChart(string title, bool showData = true) : IMermaidable
 {
@@ -22,9 +20,9 @@ public class PieChart(string title, bool showData = true) : IMermaidable
     public Guid Id { get; } = Guid.NewGuid();
 
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.Write("pie {0}", ShowData ? "showData\n" : string.Empty);
         writer.IncreaseIndent();
         writer.WriteLine("title {0}", Title);

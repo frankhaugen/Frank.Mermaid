@@ -1,12 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <Description>Mermaid is a really cool tool for generating diagrams from text. This is a set of types that can be used to generate Mermaid diagrams from C# code. It uses CodegenCS to generate the code due to the smooth indentation it provides.</Description>
-        <PackageTags>mermaid, diagram, codegen, codegencs, diagramming, graph, pie, git, flowchart, sequence, gantt, class, state, entity, relationship, erd, entity-relationship, database, database-diagram, database-schema, schema, schema-diagram, schema-design, schema-visualization, visualization, visualisation, visual, visual-diagram, visual-schema, visual-design, visual-visualization, visualisation-diagram, visualisation-schema, visualisation-design</PackageTags>
+        <Description>Mermaid is a really cool tool for generating diagrams from text. This is a set of types that can be used to generate Mermaid diagrams from C# code to be used with any type of project.</Description>
+        <PackageTags>mermaid, diagram, diagramming, graph, pie, git, flowchart, sequence, gantt, class, state, entity, relationship, erd, entity-relationship, database, database-diagram, database-schema, schema, schema-diagram, schema-design, schema-visualization, visualization, visualisation, visual, visual-diagram, visual-schema, visual-design, visual-visualization, visualisation-diagram, visualisation-schema, visualisation-design</PackageTags>
     </PropertyGroup>
-
-    <ItemGroup>
-      <PackageReference Include="CodegenCS.Core" Version="3.4.0" />
-    </ItemGroup>
 
 </Project>

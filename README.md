@@ -32,7 +32,7 @@ public class Program
         mermaidPieChart.AddValue("C", 420);
         mermaidPieChart.AddValue("D", 69);
         
-        Console.WriteLine(mermaidPieChart.ToMermaidSyntax().ToString());
+        Console.WriteLine(mermaidPieChart.GetBuilder().ToString());
     }
 }
 ```

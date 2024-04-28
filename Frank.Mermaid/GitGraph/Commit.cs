@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Commit : IMermaidable
 {
@@ -19,9 +17,9 @@ public class Commit : IMermaidable
     public Guid Id { get; } = Guid.NewGuid();
 
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.Write("commit {0}", Hash);
         writer.IncreaseIndent();
         writer.WriteLine("message {0}", Message);

@@ -28,7 +28,7 @@ public class FlowchartTests(ITestOutputHelper outputHelper)
         
         flowchart.AddSubgraph(subgraph);
         
-        var writer = flowchart.ToMermaidSyntax();
+        var writer = flowchart.GetBuilder();
         var result = writer.ToString();
         
         outputHelper.WriteLine(result);
@@ -65,7 +65,7 @@ public class FlowchartTests(ITestOutputHelper outputHelper)
         var link4 = new Link(outside, top2);
         flowchart.AddLink(link4);
         
-        var writer = flowchart.ToMermaidSyntax();
+        var writer = flowchart.GetBuilder();
         var result = writer.ToString();
         
         outputHelper.WriteLine(result);

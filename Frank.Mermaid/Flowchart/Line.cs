@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Line(LineStyle lineStyle, int lineWidth = 1) : IMermaidable
 {
@@ -8,9 +6,9 @@ public class Line(LineStyle lineStyle, int lineWidth = 1) : IMermaidable
     public Guid Id { get; } = Guid.NewGuid();
     
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();        
+        var writer = new IndentedStringBuilder();        
         var arrow = lineStyle.ToString().Contains("Arrow") ? ">" : "";
         
         switch (lineStyle)

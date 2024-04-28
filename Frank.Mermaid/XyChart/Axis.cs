@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Axis(string xAxis, bool logarithmic = false) : IMermaidable
 {
@@ -12,9 +10,9 @@ public class Axis(string xAxis, bool logarithmic = false) : IMermaidable
     public Guid Id { get; } = Guid.NewGuid();
 
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.WriteLine("axis {0}", Title);
         writer.IncreaseIndent();
         writer.WriteLine("log {0}", Logarithmic.ToString().ToLower());

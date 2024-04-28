@@ -14,5 +14,5 @@ public static class MermaidableExtensions
     /// </summary>
     /// <param name="source"></param>
     /// <returns></returns>
-    public static string GetMermaidString(this IMermaidable source) => source.ToMermaidSyntax().ToString();
+    public static string GetMermaidString(this IMermaidable source) => source.GetBuilder().ToString();
 }

@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Event(string title, DateTime date, TimePeriod timePeriod = TimePeriod.Day) : IMermaidable
 {
@@ -9,9 +7,9 @@ public class Event(string title, DateTime date, TimePeriod timePeriod = TimePeri
     /// <inheritdoc />
     public Guid Id { get; } = Guid.NewGuid();
     
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.Write("{0} : {1}", GetPeriodString(date), title);
         return writer;
     }

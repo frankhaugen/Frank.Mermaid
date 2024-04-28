@@ -1,6 +1,4 @@
-﻿using CodegenCS;
-
-namespace Frank.Mermaid;
+﻿namespace Frank.Mermaid;
 
 public class Node(Guid id, string label, Shape shape) : IMermaidable
 {
@@ -19,7 +17,7 @@ public class Node(Guid id, string label, Shape shape) : IMermaidable
     public Shape Shape { get; } = shape;
 
     /// <inheritdoc />
-    public ICodegenTextWriter ToMermaidSyntax()
+    public IIndentedStringBuilder GetBuilder()
     {
         var label = Shape switch
         {
@@ -32,7 +30,7 @@ public class Node(Guid id, string label, Shape shape) : IMermaidable
             _ => $"[{Label}]" // Default case
         };
         
-        var writer = new CodegenTextWriter();
+        var writer = new IndentedStringBuilder();
         writer.WriteLine("{0}{1}", this.GetId(), label);
         return writer;
     }
