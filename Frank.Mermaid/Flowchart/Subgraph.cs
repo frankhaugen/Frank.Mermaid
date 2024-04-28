@@ -13,9 +13,9 @@ public class Subgraph(string label, Direction direction) : IMermaidable
     public void AddSubgraphs(IEnumerable<Subgraph> subgraphs) => _subgraphs.AddRange(subgraphs);
 
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
     
-    public string Label { get; } = label;
+    public string Label { get; } = label.CleanNonAlphanumeric();
 
     public Direction Direction { get; } = direction;
 
@@ -30,6 +30,7 @@ public class Subgraph(string label, Direction direction) : IMermaidable
     /// <inheritdoc />
     public IIndentedStringBuilder GetBuilder()
     {
+        CleanDuplicates();
         var writer = new IndentedStringBuilder();
         writer.WriteLine("subgraph {0}", Label);
         writer.IncreaseIndent();
@@ -55,5 +56,39 @@ public class Subgraph(string label, Direction direction) : IMermaidable
         writer.DecreaseIndent();
         writer.WriteLine("end");
         return writer;
+    }
+    
+    private void CleanDuplicates()
+    {
+        var nodeIds = new HashSet<Hash>();
+        var linkIds = new HashSet<Hash>();
+        var subgraphIds = new HashSet<Hash>();
+        
+        Nodes.RemoveAll(node =>
+        {
+            if (!nodeIds.Add(node.Id))
+            {
+                return true;
+            }
+            return false;
+        });
+        
+        Links.RemoveAll(link =>
+        {
+            if (!linkIds.Add(link.Id))
+            {
+                return true;
+            }
+            return false;
+        });
+        
+        _subgraphs.RemoveAll(subgraph =>
+        {
+            if (!subgraphIds.Add(subgraph.Id))
+            {
+                return true;
+            }
+            return false;
+        });
     }
 }

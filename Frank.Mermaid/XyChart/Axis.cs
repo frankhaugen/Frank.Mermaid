@@ -7,7 +7,7 @@ public class Axis(string xAxis, bool logarithmic = false) : IMermaidable
     public bool Logarithmic { get; } = logarithmic;
 
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
 
     /// <inheritdoc />
     public IIndentedStringBuilder GetBuilder()

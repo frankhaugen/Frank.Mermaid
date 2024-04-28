@@ -16,11 +16,12 @@ public class Flowchart(Direction direction = Direction.TopToBottom) : IMermaidab
     public void AddLinks(IEnumerable<Link> links) => _links.AddRange(links);
 
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
 
     /// <inheritdoc />
     public IIndentedStringBuilder GetBuilder()
     {
+        // CleanDuplicates();
         var writer = new IndentedStringBuilder();
         writer.WriteLine("flowchart {0}", direction.GetBuilder());
         writer.IncreaseIndent();
@@ -43,5 +44,42 @@ public class Flowchart(Direction direction = Direction.TopToBottom) : IMermaidab
         writer.DecreaseIndent();
         
         return writer;
+    }
+    
+    private void CleanDuplicates()
+    {
+        var nodeIds = new HashSet<Hash>();
+        var linkIds = new HashSet<Hash>();
+        var subgraphIds = new HashSet<Hash>();
+        
+        _nodes.RemoveAll(node =>
+        {
+            if (!nodeIds.Add(node.Id))
+            {
+                return true;
+            }
+
+            return false;
+        });
+        
+        _links.RemoveAll(link =>
+        {
+            if (linkIds.Contains(link.Id))
+            {
+                return true;
+            }
+            linkIds.Add(link.Id);
+            return false;
+        });
+        
+        _subgraphs.RemoveAll(subgraph =>
+        {
+            if (subgraphIds.Contains(subgraph.Id))
+            {
+                return true;
+            }
+            subgraphIds.Add(subgraph.Id);
+            return false;
+        });
     }
 }

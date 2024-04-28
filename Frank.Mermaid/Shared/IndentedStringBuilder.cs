@@ -40,7 +40,7 @@ public class IndentedStringBuilder : IIndentedStringBuilder
 		return this;
 	}
 
-	public IIndentedStringBuilder Write(string format, params object[] args)
+	public IIndentedStringBuilder Write(string format, params object?[] args)
 	{
 		string formattedText = string.Format(format, args);
 		_builder.Append(new String(_indentString[0], _indentLevel * _indentString.Length));

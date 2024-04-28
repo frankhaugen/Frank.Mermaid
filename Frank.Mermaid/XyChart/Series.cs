@@ -6,7 +6,7 @@ public class Series(string name) : IMermaidable
     public List<Point> Points { get; } = new();
 
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
 
     /// <inheritdoc />
     public IIndentedStringBuilder GetBuilder()

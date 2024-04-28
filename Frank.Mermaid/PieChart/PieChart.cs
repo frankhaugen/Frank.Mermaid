@@ -17,15 +17,15 @@ public class PieChart(string title, bool showData = true) : IMermaidable
     public void AddValues(params KeyValuePair<string, double>[] values) => Values.AddRange(values.Select(pair => new ChartValue(pair.Key, pair.Value)));
 
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
 
     /// <inheritdoc />
     public IIndentedStringBuilder GetBuilder()
     {
         var writer = new IndentedStringBuilder();
         writer.Write("pie {0}", ShowData ? "showData\n" : string.Empty);
-        writer.IncreaseIndent();
         writer.WriteLine("title {0}", Title);
+        writer.IncreaseIndent();
         foreach (var value in Values)
         {
             writer.WriteLine("\"{0}\" : {1}", value.Name, value.Value);

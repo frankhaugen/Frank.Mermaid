@@ -1,4 +1,6 @@
-﻿namespace Frank.Mermaid.Tests;
+﻿using System.Text;
+
+namespace Frank.Mermaid.Tests;
 
 public class HashTests
 {
@@ -104,8 +106,8 @@ public class HashTests
             new Hash(DateTime.MaxValue),
             new Hash(),
             new Hash(DateTime.Today),
-            new Hash("000000000069"),
-            new Hash(new Hash("000000000666").ToString()),
+            Hash.Parse("000000000069"),
+            Hash.Parse(Hash.Parse("000000000666").ToInt64()),
             new Hash(new DateTime(2022, 1, 1, 0, 0, 0, DateTimeKind.Utc)),
             new Hash(new DateTime(2022, 1, 2, 0, 0, 0, DateTimeKind.Utc)),
             new Hash(new DateTime(2022, 1, 3, 0, 0, 0, DateTimeKind.Utc)),
@@ -127,7 +129,20 @@ public class HashTests
         {
             var hashResult = result[index];
             var hashSource = hashes[index].ToString();
-            var comparisonString = $"{hashSource}   {hashResult}   {hashSource == hashResult}      {new DateTime(hashes[index].ToInt64()):s}";
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(hashSource);
+            stringBuilder.Append("   ");
+            stringBuilder.Append(hashResult);
+            stringBuilder.Append("   ");
+            stringBuilder.Append(hashSource == hashResult);
+            stringBuilder.Append("      ");
+            
+            var step1 = hashes[index];
+            var step2 = step1.ToInt64();
+            var step3 = new DateTime(step2);
+            
+            stringBuilder.Append($"{step3:s}");
+            var comparisonString = stringBuilder.ToString();
             
             _outputHelper.WriteLine(comparisonString);
             Assert.Equal(hashSource, hashResult);

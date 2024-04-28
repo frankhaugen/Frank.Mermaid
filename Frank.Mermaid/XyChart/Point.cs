@@ -6,7 +6,7 @@ public class Point(int x, int y) : IMermaidable
     public double Y { get; } = y;
 
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
 
     /// <inheritdoc />
     public IIndentedStringBuilder GetBuilder()

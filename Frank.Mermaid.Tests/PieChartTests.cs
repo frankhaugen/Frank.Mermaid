@@ -39,6 +39,6 @@ public class PieChartTests(ITestOutputHelper outputHelper)
         mermaidPieChart.AddValue("C", 420);
         mermaidPieChart.AddValue("D", 69);
         
-        outputHelper.WriteLine(mermaidPieChart.ToString());
+        outputHelper.WriteLine(mermaidPieChart.GetBuilder().ToString());
     }
 }

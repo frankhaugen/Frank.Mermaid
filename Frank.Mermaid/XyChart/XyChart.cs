@@ -4,15 +4,15 @@
 /// Represents an XY chart.
 /// </summary>
 /// <remarks>Beta</remarks>
-public class XyChart(string title) : IMermaidable
+public class XyChart(string? title) : IMermaidable
 {
-    public string Title { get; } = title;
+    public string? Title { get; } = title;
     public Axis XAxis { get; private set; }
     public Axis YAxis { get; private set; }
     public List<Series> Series { get; } = new();
 
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
     
     public void AddSeries(Series series) => Series.Add(series);
 

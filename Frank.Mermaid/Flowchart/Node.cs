@@ -1,17 +1,17 @@
 ﻿namespace Frank.Mermaid;
 
-public class Node(Guid id, string label, Shape shape) : IMermaidable
+public class Node(Hash id, string label, Shape shape) : IMermaidable
 {
-    public Node(string label) : this(Guid.NewGuid(), label, Shape.Rectangle)
+    public Node(string label) : this(Hash.NewHash(), label, Shape.Rectangle)
     {
     }
     
-    public Node(string label, Shape shape) : this(Guid.NewGuid(), label, shape)
+    public Node(string label, Shape shape) : this(Hash.NewHash(), label, shape)
     {
     }
 
     /// <inheritdoc />
-    public Guid Id { get; } = id;
+    public Hash Id { get; } = id;
 
     public string Label { get; } = label;
     public Shape Shape { get; } = shape;
@@ -27,6 +27,9 @@ public class Node(Guid id, string label, Shape shape) : IMermaidable
             Shape.Hexagon => $"{{{{{Label}}}}}",
             Shape.Database => $"[({Label})]",
             Shape.Rectangle => $"[{Label}]", // Default case
+            Shape.Diamond => $"{{{Label}}}",
+            Shape.DoubleCircle => $"((({Label})))",
+            
             _ => $"[{Label}]" // Default case
         };
         

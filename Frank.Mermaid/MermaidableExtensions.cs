@@ -7,7 +7,7 @@ public static class MermaidableExtensions
     /// </summary>
     /// <param name="source"></param>
     /// <returns></returns>
-    public static string GetId(this IMermaidable source) => source.Id.ToString("N");
+    public static string GetId(this IMermaidable source) => source.Id.ToString();
     
     /// <summary>
     /// Returns the object as a string in Mermaid syntax ready to be used in a Mermaid diagram.

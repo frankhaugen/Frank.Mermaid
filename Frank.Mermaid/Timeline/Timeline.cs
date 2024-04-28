@@ -12,7 +12,7 @@ public class Timeline(string title) : IMermaidable
     public void AddEvents(IEnumerable<Event> events) => _events.AddRange(events);
     
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
     
     public IIndentedStringBuilder GetBuilder()
     {

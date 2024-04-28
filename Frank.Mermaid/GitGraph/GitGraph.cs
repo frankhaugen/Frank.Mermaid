@@ -5,7 +5,7 @@ public class GitGraph : IMermaidable
     public List<Commit> Commits { get; } = new();
     
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
     
     public void AddCommit(Commit commit) => Commits.Add(commit);
 

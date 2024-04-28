@@ -37,7 +37,7 @@ public interface IIndentedStringBuilder
     /// <param name="format">A composite format string.</param>
     /// <param name="args">An array of objects to format.</param>
     /// <returns>The current instance of the builder for method chaining.</returns>
-    IIndentedStringBuilder Write(string format, params object[] args);
+    IIndentedStringBuilder Write(string format, params object?[] args);
 
     /// <summary>
     /// Appends a formatted line of text to the current string with a newline.

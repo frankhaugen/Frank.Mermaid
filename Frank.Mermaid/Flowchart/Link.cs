@@ -1,37 +1,32 @@
 ﻿namespace Frank.Mermaid;
 
-public class Link : IMermaidable
+public class Link : IMermaidable, IComparable<Link>, IEquatable<Link>
 {
-    public Link(string source, string target, string? label = null)
-    {
-        Source = source;
-        Target = target;
-        Label = label;
-    }
-
     public string? Label { get; }
 
     public string Target { get; }
 
     public string Source { get; }
     
-    public Line Line { get; private set; } = new Line(LineStyle.Normal, 3);
+    public Line Line { get; private set; } = new Line(LineStyle.NormalWithArrow, 3);
 
     public Link(IMermaidable source, IMermaidable target, string? label = null)
     {
-        Source = GetIdentifier(source);
-        Target = GetIdentifier(target);
-        Label = label;
-    }
-
-    private string? GetIdentifier(IMermaidable source)
-    {
-        if (source is Subgraph subgraph)
+        Source = source switch
         {
-            return subgraph.Label;
-        }
-        
-        return source.Id.ToString("N");
+            Node sourceNode => sourceNode.Id.ToString(),
+            Subgraph sourceSubgraph => sourceSubgraph.Label,
+            _ => throw new ArgumentException("Source must be a Node or Subgraph", nameof(source))
+        };
+
+        Target = target switch
+        {
+            Node targetNode => targetNode.Id.ToString(),
+            Subgraph targetSubgraph => targetSubgraph.Label,
+            _ => throw new ArgumentException("Target must be a Node or Subgraph", nameof(target))
+        };
+
+        Label = label;
     }
 
     public void SetLineStyle(Line line)
@@ -40,7 +35,7 @@ public class Link : IMermaidable
     }
     
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
     
     /// <inheritdoc />
     public IIndentedStringBuilder GetBuilder()
@@ -55,13 +50,21 @@ public class Link : IMermaidable
 
     private string GetLabel() => !string.IsNullOrWhiteSpace(Label) ? $"|{Label}|" : string.Empty;
 
-    /*
-    Length	            1	    2	    3
-    Normal	            ---	    ----	-----
-    Normal with arrow	-->	    --->	---->
-    Thick	            ===	    ====	=====
-    Thick with arrow	==>	    ===>	====>
-    Dotted	            -.-	    -..-	-...-
-    Dotted with arrow	-.->    -..->	-...->
-     */
+    /// <inheritdoc />
+    public int CompareTo(Link? other)
+    {
+        if (other == null) return 1;
+        if (ReferenceEquals(this, other)) return 0;
+        if (Id == other.Id) return 0;
+        if (Source == other.Source && Target == other.Target) return 0;
+        return string.CompareOrdinal(Id.ToString(), other.Id.ToString());
+    }
+
+    /// <inheritdoc />
+    public bool Equals(Link? other)
+    {
+        if (other == null) return false;
+        if (ReferenceEquals(this, other)) return true;
+        return Id == other.Id && Source == other.Source && Target == other.Target;
+    }
 }

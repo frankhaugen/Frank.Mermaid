@@ -12,24 +12,35 @@ public readonly struct Hash : IEquatable<Hash>, IComparable<Hash>
     private readonly long _ticks;
 
     /// <summary>
+    /// Creates a new GitHash with the current date and time as a seed.
+    /// </summary>
+    public Hash() => _ticks = GetTicks();
+
+    /// <summary>
     /// Creates a new GitHash with the current or the provided date and time as a seed.
     /// </summary>
     /// <param name="dateTime"></param>
     public Hash(DateTime? dateTime = null)
     {
-        _ticks = (dateTime ?? DateTime.UtcNow).Ticks;
+        _ticks = GetTicks(dateTime ?? DateTime.UtcNow);
     }
     
-    public Hash(long ticks)
-    {
-        _ticks = ticks;
-    }
+    public static Hash Parse(string base36) => Parse(FromBase36(base36));
     
-    public Hash(string base36)
-    {
-        _ticks = FromBase36(base36);
-    }
+    public static Hash Parse(long value) => new(DateTime.FromBinary(value));
+    
+    public static Hash NewHash() => new();
 
+    private static long GetTicks(DateTime? dateTime = null)
+    {
+        var tics = dateTime?.Ticks ?? (DateTime.UtcNow.Ticks + Random.Shared.NextInt64(1000, 5000));
+        
+        if (tics < 0) 
+            throw new ArgumentOutOfRangeException(nameof(dateTime), "ticks must be greater than 0 or equal to 0, actual value: " + tics.ToString("D"));
+        
+        return tics;
+    }
+    
     private static long FromBase36(string base36)
     {
         if (string.IsNullOrEmpty(base36))
@@ -48,19 +59,6 @@ public readonly struct Hash : IEquatable<Hash>, IComparable<Hash>
             multiplier *= 36;
         }
 
-        return result;
-    }
-    
-    private static string ToBase36_1(long value)
-    {
-        if (value == 0) return "0";
-
-        var result = string.Empty;
-        while (value > 0)
-        {
-            result = Base36Chars[(int)(value % 36)] + result;
-            value /= 36;
-        }
         return result;
     }
     

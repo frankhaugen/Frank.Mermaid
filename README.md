@@ -13,42 +13,67 @@ You can install the package via NuGet.
 dotnet add package Frank.Mermaid
 ```
 
-## Usage
+## Examples
 
-Add the following using statement to your _Imports.razor:
+### Flow Chart
 
-```csharp
-using Frank.Mermaid;
-
-namespace YourNamespace;
-
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var mermaidPieChart = new PieChart("MyPieChart");
-        mermaidPieChart.AddValue("A", 999);
-        mermaidPieChart.AddValue("B", 666);
-        mermaidPieChart.AddValue("C", 420);
-        mermaidPieChart.AddValue("D", 69);
-        
-        Console.WriteLine(mermaidPieChart.GetBuilder().ToString());
-    }
-}
+```mermaid
+flowchart TB
+    4UMX1H40C9SM{Does it work?}
+    4UMX1H40C8QD{Did you touch it?}
+    4UMX1H40C8Y0{Does anyone else know?}
+    4UMX1H40C9I5{Will you get into trouble?}
+    4UMX1H40C9B9{Can you blame someone else?}
+    4UMX1H40CA5I[No problems]
+    4UMX1H40CA5O[You Idiot]
+    4UMX1H40C8K3[You Poor Bastard]
+    4UMX1H40C9UI{Leave the bloody thing alone}
+    4UMX1H40C9ZE[Hide it]
+    4UMX1H40C929[Pass the buck]
+    4UMX1H40C9I5 --->|YES| 4UMX1H40C8K3
+    4UMX1H40C9B9 --->|NO| 4UMX1H40C8K3
+    4UMX1H40C9B9 --->|YES| 4UMX1H40CA5I
+    4UMX1H40C9ZE ---> 4UMX1H40CA5I
+    4UMX1H40CA5O ---> 4UMX1H40C8Y0
+    4UMX1H40C8Y0 --->|YES| 4UMX1H40C8K3
+    4UMX1H40C8Y0 --->|NO| 4UMX1H40C9ZE
+    4UMX1H40C9UI --->|YES| 4UMX1H40CA5I
+    4UMX1H40C8QD --->|YES| 4UMX1H40CA5O
+    4UMX1H40C8QD --->|NO| 4UMX1H40C9I5
+    4UMX1H40C9I5 --->|NO| 4UMX1H40C929
+    4UMX1H40C9SM --->|YES| 4UMX1H40C9UI
+    4UMX1H40C9SM --->|NO| 4UMX1H40C8QD
+    4UMX1H40C8K3 ---> 4UMX1H40C9B9
+    4UMX1H40C929 ---> 4UMX1H40CA5I
+    4UMX1H40C9UI --->|NO| 4UMX1H40CA5O
 ```
 
-Raw Mermaid syntax outputted:
+### Timeline
 
-```text
-pie showData
-    title MyPieChart
-    "A" : 999
-    "B" : 666
-    "C" : 420
-    "D" : 69
+```mermaid
+
+timeline
+    title Norway's Historical Timeline
+    section Viking Age
+        0793-01-01 : Beginning of Viking Age
+        0872-01-01 : Battle of Hafrsfjord
+    section Middle Ages
+        1000-01-01 : Christianization of Norway
+        1349-01-01 : Black Death
+    section Union Periods
+        1397-01-01 : Kalmar Union
+        1536-01-01 : Denmark-Norway Union
+        1814-01-01 : Sweden-Norway Union
+    section Modern History
+        1905-01-01 : Dissolution of Sweden-Norway Union
+        1940-04-09 : WWII - German Occupation
+        1969-01-01 : Discovery of Oil
+        2024-04-28 : Current Era
 ```
 
-Mermaid diagram:
+
+### Pie Chart
+
 ```mermaid
 pie showData
     title MyPieChart

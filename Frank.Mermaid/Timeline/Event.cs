@@ -5,7 +5,7 @@ public class Event(string title, DateTime date, TimePeriod timePeriod = TimePeri
     public readonly TimePeriod TimePeriod = timePeriod;
 
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
     
     public IIndentedStringBuilder GetBuilder()
     {
@@ -14,7 +14,7 @@ public class Event(string title, DateTime date, TimePeriod timePeriod = TimePeri
         return writer;
     }
 
-    private string GetPeriodString(DateTime dateTime)
+    private string? GetPeriodString(DateTime dateTime)
     {
         return TimePeriod switch
         {

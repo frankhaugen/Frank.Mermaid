@@ -3,7 +3,7 @@
 public class Line(LineStyle lineStyle, int lineWidth = 1) : IMermaidable
 {
     /// <inheritdoc />
-    public Guid Id { get; } = Guid.NewGuid();
+    public Hash Id { get; } = Hash.NewHash();
     
     /// <inheritdoc />
     public IIndentedStringBuilder GetBuilder()
@@ -36,4 +36,15 @@ public class Line(LineStyle lineStyle, int lineWidth = 1) : IMermaidable
         
         return writer;
     }
+    
+    /*
+    Length	            1	    2	    3
+    Normal	            ---	    ----	-----
+    Normal with arrow	-->	    --->	---->
+    Thick	            ===	    ====	=====
+    Thick with arrow	==>	    ===>	====>
+    Dotted	            -.-	    -..-	-...-
+    Dotted with arrow	-.->    -..->	-...->
+     */
+
 }

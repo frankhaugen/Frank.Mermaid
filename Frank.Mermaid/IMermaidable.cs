@@ -5,7 +5,7 @@ public interface IMermaidable
     /// <summary>
     /// The unique identifier of the object.
     /// </summary>
-    Guid Id { get; }
+    Hash Id { get; }
     
     /// <summary>
     /// Returns a string representation of the object in Mermaid syntax.
