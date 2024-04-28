@@ -64,4 +64,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Credits
 
-This project is 100% original work by Frank R. Haugen. It is 
+This project is 100% original work by Frank R. Haugen. It is not based on any other project or library on purpose. This has 
+is not a unique idea, but I need this for a personal project, and existing libraries did not meet my requirements, like 
+GitGraph and Timeline was missing, and the existing libraries have in many cases been abandoned or not updated in a long time.
