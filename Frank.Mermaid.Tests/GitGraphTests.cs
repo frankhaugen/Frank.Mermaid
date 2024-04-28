@@ -1,5 +1,4 @@
-﻿using Frank.Mermaid.GitGraph;
-using Xunit.Abstractions;
+﻿using Xunit.Abstractions;
 
 namespace Frank.Mermaid.Tests;
 
@@ -15,7 +14,7 @@ public class GitGraphTests
     [Fact]
     public void Test1()
     {
-        var graph = new GitGraph.GitGraph();
+        var graph = new GitGraph();
         var commit1 = new Commit( "", "","Commit 1");
         var commit2 = new Commit("", "", "Commit 2");
         graph.AddCommit(commit1);

@@ -1,6 +1,6 @@
 ﻿using CodegenCS;
 
-namespace Frank.Mermaid.XyChart;
+namespace Frank.Mermaid;
 
 public class Point(int x, int y) : IMermaidable
 {

@@ -1,6 +1,6 @@
 ﻿using CodegenCS;
 
-namespace Frank.Mermaid.Timeline;
+namespace Frank.Mermaid;
 
 public class Event(string title, DateTime date, TimePeriod timePeriod = TimePeriod.Day) : IMermaidable
 {

@@ -1,6 +1,6 @@
 ﻿using CodegenCS;
 
-namespace Frank.Mermaid.Flowchart;
+namespace Frank.Mermaid;
 
 public class Node(Guid id, string label, Shape shape) : IMermaidable
 {

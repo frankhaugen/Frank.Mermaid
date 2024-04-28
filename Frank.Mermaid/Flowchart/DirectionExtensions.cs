@@ -1,4 +1,4 @@
-﻿namespace Frank.Mermaid.Flowchart;
+﻿namespace Frank.Mermaid;
 
 public static class DirectionExtensions
 {

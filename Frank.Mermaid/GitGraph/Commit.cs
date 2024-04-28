@@ -1,6 +1,6 @@
 ﻿using CodegenCS;
 
-namespace Frank.Mermaid.GitGraph;
+namespace Frank.Mermaid;
 
 public class Commit : IMermaidable
 {

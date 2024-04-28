@@ -1,4 +1,3 @@
-using Frank.Mermaid.Timeline;
 using Xunit.Abstractions;
 
 namespace Frank.Mermaid.Tests;
@@ -8,7 +7,7 @@ public class TimelineTests(ITestOutputHelper outputHelper)
     [Fact]
     public void Test1()
     {
-        var timeline = new Timeline.Timeline("My Timeline");
+        var timeline = new Timeline("My Timeline");
         var section1 = new Section("Section 1");
         section1.AddEvent(new Event("Event 1", new DateTime(2022, 1, 1)));
         section1.AddEvent(new Event("Event 2", new DateTime(2022, 1, 2)));

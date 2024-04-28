@@ -1,5 +1,4 @@
-﻿using Frank.Mermaid.XyChart;
-using Xunit.Abstractions;
+﻿using Xunit.Abstractions;
 
 namespace Frank.Mermaid.Tests;
 
@@ -8,7 +7,7 @@ public class XyChartTests(ITestOutputHelper outputHelper)
     [Fact]
     public void Test1()
     {
-        var chart = new XyChart.XyChart("Chart 1");
+        var chart = new XyChart("Chart 1");
         var series1 = new Series("Series 1");
         series1.Points.Add(new Point(1, 2));
         series1.Points.Add(new Point(2, 3));

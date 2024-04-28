@@ -1,4 +1,3 @@
-using Frank.Mermaid.Flowchart;
 using Xunit.Abstractions;
 
 namespace Frank.Mermaid.Tests;
@@ -8,7 +7,7 @@ public class FlowchartTests(ITestOutputHelper outputHelper)
     [Fact]
     public void Test1()
     {
-        var flowchart = new Flowchart.Flowchart();
+        var flowchart = new Flowchart();
         var node1 = new Node("Node 1");
         var node2 = new Node("Node 2");
         flowchart.AddNode(node1);
@@ -40,7 +39,7 @@ public class FlowchartTests(ITestOutputHelper outputHelper)
     [Fact]
     public void Test2()
     {
-        var flowchart = new Flowchart.Flowchart();
+        var flowchart = new Flowchart();
         
         var subgraph1 = new Subgraph("subgraph1", Direction.TopToBottom);
         var top1 = new Node("top");

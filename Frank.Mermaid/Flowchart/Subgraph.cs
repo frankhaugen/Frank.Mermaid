@@ -1,6 +1,6 @@
 ﻿using CodegenCS;
 
-namespace Frank.Mermaid.Flowchart;
+namespace Frank.Mermaid;
 // Define the line styles using an enumeration
 
 public class Subgraph(string label, Direction direction) : IMermaidable

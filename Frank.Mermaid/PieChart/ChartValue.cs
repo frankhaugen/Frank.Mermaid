@@ -1,4 +1,4 @@
-﻿namespace Frank.Mermaid.PieChart;
+﻿namespace Frank.Mermaid;
 
 public class ChartValue(string name, double value)
 {

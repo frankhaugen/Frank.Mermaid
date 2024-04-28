@@ -1,6 +1,6 @@
 ﻿using CodegenCS;
 
-namespace Frank.Mermaid.Timeline;
+namespace Frank.Mermaid;
 
 public class Timeline(string title) : IMermaidable
 {

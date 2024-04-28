@@ -1,6 +1,6 @@
 ﻿using CodegenCS;
 
-namespace Frank.Mermaid.Flowchart;
+namespace Frank.Mermaid;
 
 public class Line(LineStyle lineStyle, int lineWidth = 1) : IMermaidable
 {

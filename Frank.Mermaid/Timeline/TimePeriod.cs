@@ -1,4 +1,4 @@
-﻿namespace Frank.Mermaid.Timeline;
+﻿namespace Frank.Mermaid;
 
 public enum TimePeriod
 {

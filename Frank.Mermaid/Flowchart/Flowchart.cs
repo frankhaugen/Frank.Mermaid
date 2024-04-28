@@ -1,6 +1,6 @@
 ﻿using CodegenCS;
 
-namespace Frank.Mermaid.Flowchart;
+namespace Frank.Mermaid;
 
 public class Flowchart(Direction direction = Direction.TopToBottom) : IMermaidable
 {

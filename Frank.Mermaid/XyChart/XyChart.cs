@@ -1,6 +1,6 @@
 ﻿using CodegenCS;
 
-namespace Frank.Mermaid.XyChart;
+namespace Frank.Mermaid;
 
 /// <summary>
 /// Represents an XY chart.
