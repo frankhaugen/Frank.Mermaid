@@ -1,5 +1,4 @@
 using Frank.Mermaid.Flowchart;
-using Frank.Mermaid.Timeline;
 using Xunit.Abstractions;
 
 namespace Frank.Mermaid.Tests;
@@ -41,26 +40,6 @@ public class FlowchartTests(ITestOutputHelper outputHelper)
     [Fact]
     public void Test2()
     {
-        /*
-         Testcase:
-         flowchart LR
-            subgraph subgraph1
-                direction TB
-                top1[top] --> bottom1[bottom]
-            end
-            subgraph subgraph2
-                direction TB
-                top2[top] --> bottom2[bottom]
-            end
-            %% ^ These subgraphs are identical, except for the links to them:
-
-            %% Link *to* subgraph1: subgraph1 direction is maintained
-            outside --> subgraph1
-            %% Link *within* subgraph2:
-            %% subgraph2 inherits the direction of the top-level graph (LR)
-            outside ---> top2
-         */
-        
         var flowchart = new Flowchart.Flowchart();
         
         var subgraph1 = new Subgraph("subgraph1", Direction.TopToBottom);
