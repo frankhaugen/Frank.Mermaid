@@ -2,13 +2,14 @@
 
 namespace Frank.Mermaid.XyChart;
 
-public class Axis : IMermaidable
+public class Axis(string xAxis, bool logarithmic = false) : IMermaidable
 {
-    public string Title { get; }
-    public bool Logarithmic { get; }
+    public string Title { get; } = xAxis;
+
+    public bool Logarithmic { get; } = logarithmic;
 
     /// <inheritdoc />
-    public Guid Id { get; }
+    public Guid Id { get; } = Guid.NewGuid();
 
     /// <inheritdoc />
     public ICodegenTextWriter ToMermaidSyntax()

@@ -2,13 +2,13 @@
 
 namespace Frank.Mermaid.XyChart;
 
-public class Series : IMermaidable
+public class Series(string name) : IMermaidable
 {
-    public string Name { get; }
-    public List<Point> Points { get; }
+    public string Name { get; } = name;
+    public List<Point> Points { get; } = new();
 
     /// <inheritdoc />
-    public Guid Id { get; }
+    public Guid Id { get; } = Guid.NewGuid();
 
     /// <inheritdoc />
     public ICodegenTextWriter ToMermaidSyntax()

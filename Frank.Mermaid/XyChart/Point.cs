@@ -2,10 +2,10 @@
 
 namespace Frank.Mermaid.XyChart;
 
-public class Point : IMermaidable
+public class Point(int x, int y) : IMermaidable
 {
-    public double X { get; }
-    public double Y { get; }
+    public double X { get; } = x;
+    public double Y { get; } = y;
 
     /// <inheritdoc />
     public Guid Id { get; } = Guid.NewGuid();

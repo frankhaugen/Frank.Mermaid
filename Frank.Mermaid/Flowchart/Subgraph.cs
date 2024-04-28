@@ -3,14 +3,8 @@
 namespace Frank.Mermaid.Flowchart;
 // Define the line styles using an enumeration
 
-public class Subgraph : IMermaidable
+public class Subgraph(string label, Direction direction) : IMermaidable
 {
-    public Subgraph(string label, Direction direction)
-    {
-        Label = label;
-        Direction = direction;
-    }
-
     public void AddNode(Node node) => Nodes.Add(node);
     public void AddNodes(IEnumerable<Node> nodes) => Nodes.AddRange(nodes);
 
@@ -23,10 +17,10 @@ public class Subgraph : IMermaidable
     /// <inheritdoc />
     public Guid Id { get; } = Guid.NewGuid();
     
-    public string Label { get; }
-    
-    public Direction Direction { get; }
-    
+    public string Label { get; } = label;
+
+    public Direction Direction { get; } = direction;
+
     public List<Node> Nodes { get; } = new();
     
     private List<Link> Links { get; } = new();

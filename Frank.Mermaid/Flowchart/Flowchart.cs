@@ -2,17 +2,11 @@
 
 namespace Frank.Mermaid.Flowchart;
 
-public class Flowchart : IMermaidable
+public class Flowchart(Direction direction = Direction.TopToBottom) : IMermaidable
 {
     private readonly List<Node> _nodes = new();
     private readonly List<Link> _links = new();
     private readonly List<Subgraph> _subgraphs = new();
-    private readonly Direction _direction;
-
-    public Flowchart(Direction direction = Direction.TopToBottom)
-    {
-        _direction = direction;
-    }
 
     public void AddSubgraph(Subgraph subgraph) => _subgraphs.Add(subgraph);
     public void AddSubgraphs(IEnumerable<Subgraph> subgraphs) => _subgraphs.AddRange(subgraphs);
@@ -30,7 +24,7 @@ public class Flowchart : IMermaidable
     public ICodegenTextWriter ToMermaidSyntax()
     {
         var writer = new CodegenTextWriter();
-        writer.WriteLine("flowchart {0}", _direction.ToMermaidSyntax());
+        writer.WriteLine("flowchart {0}", direction.ToMermaidSyntax());
         writer.IncreaseIndent();
         
         foreach (var node in _nodes)

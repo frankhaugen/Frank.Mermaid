@@ -2,15 +2,8 @@
 
 namespace Frank.Mermaid.Flowchart;
 
-public class Node : IMermaidable
+public class Node(Guid id, string label, Shape shape) : IMermaidable
 {
-    public Node(Guid id, string label, Shape shape)
-    {
-        Id = id;
-        Label = label;
-        Shape = shape;
-    }
-    
     public Node(string label) : this(Guid.NewGuid(), label, Shape.Rectangle)
     {
     }
@@ -20,9 +13,10 @@ public class Node : IMermaidable
     }
 
     /// <inheritdoc />
-    public Guid Id { get; }
-    public string Label { get; }
-    public Shape Shape { get; }
+    public Guid Id { get; } = id;
+
+    public string Label { get; } = label;
+    public Shape Shape { get; } = shape;
 
     /// <inheritdoc />
     public ICodegenTextWriter ToMermaidSyntax()

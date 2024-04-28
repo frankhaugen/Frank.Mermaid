@@ -2,26 +2,17 @@
 
 namespace Frank.Mermaid.Timeline;
 
-public class Event : IMermaidable
+public class Event(string title, DateTime date, TimePeriod timePeriod = TimePeriod.Day) : IMermaidable
 {
-    private readonly string _title;
-    private readonly DateTime _date;
-    public readonly TimePeriod TimePeriod;
-    
-    public Event(string title, DateTime date, TimePeriod timePeriod = TimePeriod.Day)
-    {
-        _title = title;
-        _date = date;
-        TimePeriod = timePeriod;
-    }
-    
+    public readonly TimePeriod TimePeriod = timePeriod;
+
     /// <inheritdoc />
     public Guid Id { get; } = Guid.NewGuid();
     
     public ICodegenTextWriter ToMermaidSyntax()
     {
         var writer = new CodegenTextWriter();
-        writer.Write("{0} : {1}", GetPeriodString(_date), _title);
+        writer.Write("{0} : {1}", GetPeriodString(date), title);
         return writer;
     }
 

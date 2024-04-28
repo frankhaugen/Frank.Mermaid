@@ -4,15 +4,8 @@ using Xunit.Abstractions;
 
 namespace Frank.Mermaid.Tests;
 
-public class FlowchartTests
+public class FlowchartTests(ITestOutputHelper outputHelper)
 {
-    private readonly ITestOutputHelper _outputHelper;
-
-    public FlowchartTests(ITestOutputHelper outputHelper)
-    {
-        _outputHelper = outputHelper;
-    }
-
     [Fact]
     public void Test1()
     {
@@ -42,7 +35,7 @@ public class FlowchartTests
         var writer = flowchart.ToMermaidSyntax();
         var result = writer.ToString();
         
-        _outputHelper.WriteLine(result);
+        outputHelper.WriteLine(result);
     }
     
     [Fact]
@@ -99,6 +92,6 @@ public class FlowchartTests
         var writer = flowchart.ToMermaidSyntax();
         var result = writer.ToString();
         
-        _outputHelper.WriteLine(result);
+        outputHelper.WriteLine(result);
     }
 }

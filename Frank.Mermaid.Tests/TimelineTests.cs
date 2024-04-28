@@ -3,15 +3,8 @@ using Xunit.Abstractions;
 
 namespace Frank.Mermaid.Tests;
 
-public class TimelineTests
+public class TimelineTests(ITestOutputHelper outputHelper)
 {
-    private readonly ITestOutputHelper _outputHelper;
-
-    public TimelineTests(ITestOutputHelper outputHelper)
-    {
-        _outputHelper = outputHelper;
-    }
-
     [Fact]
     public void Test1()
     {
@@ -34,6 +27,6 @@ public class TimelineTests
         var writer = timeline.ToMermaidSyntax();
         var result = writer.ToString();
 
-        _outputHelper.WriteLine(result);
+        outputHelper.WriteLine(result);
     }
 }
