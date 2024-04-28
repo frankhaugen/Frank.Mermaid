@@ -4,12 +4,13 @@ namespace Frank.Mermaid;
 
 public class Commit : IMermaidable
 {
-    public Commit(string hash, string message, string branch)
+    public Commit(string message, string branch, DateTime? dateTime = null)
     {
-        Hash = hash;
+        Hash = new Hash(dateTime).ToString();
         Message = message;
         Branch = branch;
     }
+    
     public string Hash { get; }
     public string Message { get; }
     public string Branch { get; }

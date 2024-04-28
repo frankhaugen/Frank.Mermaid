@@ -8,4 +8,11 @@ public static class MermaidableExtensions
     /// <param name="source"></param>
     /// <returns></returns>
     public static string GetId(this IMermaidable source) => source.Id.ToString("N");
+    
+    /// <summary>
+    /// Returns the object as a string in Mermaid syntax ready to be used in a Mermaid diagram.
+    /// </summary>
+    /// <param name="source"></param>
+    /// <returns></returns>
+    public static string GetMermaidString(this IMermaidable source) => source.ToMermaidSyntax().ToString();
 }

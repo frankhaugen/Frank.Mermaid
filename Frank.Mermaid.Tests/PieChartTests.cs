@@ -1,6 +1,4 @@
-﻿using Xunit.Abstractions;
-
-namespace Frank.Mermaid.Tests;
+﻿namespace Frank.Mermaid.Tests;
 
 public class PieChartTests(ITestOutputHelper outputHelper)
 {
@@ -41,6 +39,6 @@ public class PieChartTests(ITestOutputHelper outputHelper)
         mermaidPieChart.AddValue("C", 420);
         mermaidPieChart.AddValue("D", 69);
         
-        outputHelper.WriteLine(mermaidPieChart.ToMermaidSyntax().ToString());
+        outputHelper.WriteLine(mermaidPieChart.ToString());
     }
 }

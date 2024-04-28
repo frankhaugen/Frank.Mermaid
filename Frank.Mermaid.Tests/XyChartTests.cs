@@ -1,6 +1,4 @@
-﻿using Xunit.Abstractions;
-
-namespace Frank.Mermaid.Tests;
+﻿namespace Frank.Mermaid.Tests;
 
 public class XyChartTests(ITestOutputHelper outputHelper)
 {

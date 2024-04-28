@@ -1,5 +1,3 @@
-using Xunit.Abstractions;
-
 namespace Frank.Mermaid.Tests;
 
 public class FlowchartTests(ITestOutputHelper outputHelper)

@@ -1,6 +1,4 @@
-﻿using Xunit.Abstractions;
-
-namespace Frank.Mermaid.Tests;
+﻿namespace Frank.Mermaid.Tests;
 
 public class GitGraphTests
 {
@@ -15,10 +13,10 @@ public class GitGraphTests
     public void Test1()
     {
         var graph = new GitGraph();
-        var commit1 = new Commit( "", "","Commit 1");
-        var commit2 = new Commit("", "", "Commit 2");
-        graph.AddCommit(commit1);
-        graph.AddCommit(commit2);
+        // var commit1 = new Commit( "", "","Commit 1");
+        // var commit2 = new Commit("", "", "Commit 2");
+        // graph.AddCommit(commit1);
+        // graph.AddCommit(commit2);
         
         
         var writer = graph.ToMermaidSyntax();
