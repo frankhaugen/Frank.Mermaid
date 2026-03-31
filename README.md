@@ -5,6 +5,20 @@ the diagram types supported by Mermaid.
 
 This is not complete yet, but more diagram types will be added as time permits.
 
+___
+[![GitHub License](https://img.shields.io/github/license/frankhaugen/Frank.Mermaid)](LICENSE)
+[![NuGet](https://img.shields.io/nuget/v/Frank.Mermaid.svg)](https://www.nuget.org/packages/Frank.Mermaid)
+[![NuGet](https://img.shields.io/nuget/dt/Frank.Mermaid.svg)](https://www.nuget.org/packages/Frank.Mermaid)
+
+![GitHub contributors](https://img.shields.io/github/contributors/frankhaugen/Frank.Mermaid)
+![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/frankhaugen/Frank.Mermaid)
+![GitHub last commit](https://img.shields.io/github/last-commit/frankhaugen/Frank.Mermaid)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/frankhaugen/Frank.Mermaid)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/frankhaugen/Frank.Mermaid)
+![GitHub issues](https://img.shields.io/github/issues/frankhaugen/Frank.Mermaid)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/frankhaugen/Frank.Mermaid)
+___
+
 ## Installation
 
 You can install the package via NuGet. 
@@ -71,7 +85,6 @@ timeline
         2024-04-28 : Current Era
 ```
 
-
 ### Pie Chart
 
 ```mermaid
@@ -91,4 +104,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This project is 100% original work by Frank R. Haugen. It is not based on any other project or library on purpose. This has 
 is not a unique idea, but I need this for a personal project, and existing libraries did not meet my requirements, like 
-GitGraph and Timeline was missing, and the existing libraries have in many cases been abandoned or not updated in a long time.
+GitGraph and Timeline was missing, and the existing libraries have in many cases been abandoned or not updated in a long 
+time, at the same time Mermaid is very rapidly developing.
+
+## Contributions
+
+Contributions are welcome. Please read the [CONTRIBUTING](CONTRIBUTING.md) file for more information.
+
+## Support
+
+Please open an issue for any questions or problems. I will do my best to help you.

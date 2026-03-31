@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Docs">
+  <PropertyGroup>
+    <TargetFramework>md1.0</TargetFramework>
+    <OutputType>Docs</OutputType>
+    <EntryPoint>index.md</EntryPoint>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Frank.Mermaid\Frank.Mermaid.csproj" />
+    <PackageReference Include="SomePackage" Version="1.0.0" />
+  </ItemGroup>
+
+  <Target Name="CustomTarget">
+    <Message Text="Running custom target in .mdproj!" Importance="high"/>
+  </Target>
+</Project>

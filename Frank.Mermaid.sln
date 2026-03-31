@@ -19,6 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frank.Mermaid", "Frank.Merm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frank.Mermaid.Tests", "Frank.Mermaid.Tests\Frank.Mermaid.Tests.csproj", "{148D5C7B-FA07-4228-B455-D56754893FA3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{92EDD7B6-5542-43A8-A6E3-A9D248B1D754}"
+	ProjectSection(SolutionItems) = preProject
+		Frank.Mermaid.Docs\Frank.Mermaid.Docs.mdproj = Frank.Mermaid.Docs\Frank.Mermaid.Docs.mdproj
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +41,8 @@ Global
 		{148D5C7B-FA07-4228-B455-D56754893FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{148D5C7B-FA07-4228-B455-D56754893FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{148D5C7B-FA07-4228-B455-D56754893FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92EDD7B6-5542-43A8-A6E3-A9D248B1D754} = {2FF9C53D-52CD-479C-BD01-3F3A087C9B25}
 	EndGlobalSection
 EndGlobal
