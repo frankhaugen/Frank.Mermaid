@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/SolutionItems/">
+    <File Path=".github/workflows/merge.yml" />
+    <File Path=".github/workflows/pull-request.yml" />
+    <File Path=".github/workflows/release.yml" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="icon.png" />
+    <File Path="LICENSE" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/SolutionItems/Docs/">
+    <File Path="Frank.Mermaid.Docs/Frank.Mermaid.Docs.mdproj" />
+  </Folder>
+  <Project Path="Frank.Mermaid.Tests/Frank.Mermaid.Tests.csproj" />
+  <Project Path="Frank.Mermaid/Frank.Mermaid.csproj" />
+</Solution>
