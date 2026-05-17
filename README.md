@@ -1,3 +1,5 @@
+> **Moved to Novolis:** This library is superseded by [`Novolis.Markup.Mermaid`](https://www.nuget.org/packages/Novolis.Markup.Mermaid) from [novolis-markup](https://github.com/Novolis-Platform/novolis-markup). This repository is archived; do not add features here.
+
 # Frank.Mermaid
 
 This is a Blazor component that builds Mermaid diagrams. It has no rendering, just the just the different building blocks of 
